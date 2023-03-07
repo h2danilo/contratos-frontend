@@ -1,0 +1,45 @@
+<!-- <po-page-dynamic-edit
+  [p-actions]="actions"
+  [p-auto-router]="autoRouter"
+  [p-breadcrumb]="breadcrumb"
+  [p-fields]="fields"
+  [p-service-api]="serviceApi"
+  [p-title]="title"
+>
+</po-page-dynamic-edit> -->
+
+<po-page-default
+  [p-title]="title"
+  [p-breadcrumb]="breadcrumb"
+  [p-actions]="actions"
+>
+  <po-dynamic-form [p-fields]="fields" [p-value]="model"> </po-dynamic-form>
+  <po-divider p-label=""> </po-divider>
+  <div class="po-row">
+    <div class="po-xl-10 po-lg-10">
+      <po-rich-text
+        [(ngModel)]="model.minuta"
+        [ngClass]="{ poRichTextOver: overValue }"
+        name="minuta"
+        [p-label]="labelRichText"
+        (p-change)="changeEvent()"
+        (p-change-model)="changeEventModel()"
+      ></po-rich-text>
+    </div>
+    <div class="po-xl-2 po-lg-2">
+      <h1>Arraste para Minuta opção desejada:</h1>
+      <div class="container">
+        <div *ngFor="let paramMinuta of paramsMinuta">
+          <div
+            draggable="true"
+            class="box"
+            [ngStyle]="{ opacity: opacityValue }"
+            [attr.data-value]="paramMinuta.valueParam"
+          >
+            {{ paramMinuta.descricao }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</po-page-default>
