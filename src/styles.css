@@ -2,3 +2,17 @@
 .poRichTextOver .po-rich-text-body {
   border: 3px dotted #666;
 }
+
+.btn-send-contract {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-add-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,11 @@
+<po-page-default
+  [p-title]="title"
+  [p-breadcrumb]="breadcrumb"
+  [p-actions]="actions"
+>
+  <po-tabs p-small>
+    <po-tab p-active p-label="Dados do Contrato">
+      <po-dynamic-form [p-fields]="fields" [p-value]="model"> </po-dynamic-form>
+    </po-tab>
+  </po-tabs>
+</po-page-default>

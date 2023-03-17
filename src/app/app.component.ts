@@ -22,9 +22,14 @@ export class AppComponent implements OnInit, OnDestroy {
       action: this.onClick.bind(this),
       link: '/contrato-minuta',
     },
+    {
+      label: 'Contratos de Compra',
+      action: this.onClick.bind(this),
+      link: '/contrato-compra',
+    },
   ];
 
   private onClick() {
-    alert('Clicked in menu item');
+    //alert('Clicked in menu item');
   }
 }

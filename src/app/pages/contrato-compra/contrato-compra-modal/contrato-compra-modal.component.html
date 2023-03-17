@@ -1,0 +1,93 @@
+<po-modal p-title="Resumo Contrato">
+  <form #form="ngForm">
+    <po-tabs p-small>
+      <po-tab p-active p-label="Dados do Contrato">
+        <po-divider p-label="Dados"></po-divider>
+
+        <div class="po-row">
+          <po-input
+            class="po-sm-12 po-md-6 po-lg-4 po-xl-4"
+            name="id"
+            [(ngModel)]="model.id"
+            p-disabled
+            p-label="Codigo"
+          >
+          </po-input>
+
+          <po-datepicker
+            class="po-sm-12 po-md-6 po-lg-4 po-xl-4"
+            name="data"
+            [(ngModel)]="model.emissao"
+            p-disabled
+            p-label="Data"
+          >
+          </po-datepicker>
+
+          <po-input
+            class="po-sm-12 po-md-6 po-lg-4 po-xl-4"
+            name="numero"
+            [(ngModel)]="model.numero"
+            p-disabled
+            p-label="Numero"
+            p-maxlength="8"
+          >
+          </po-input>
+
+          <po-divider p-label="Minuta do Contrato"></po-divider>
+
+          <div class="po-xl-12 po-lg-12">
+            <po-rich-text
+              [(ngModel)]="model.minutaContrato"
+              name="minuta"
+            ></po-rich-text>
+          </div>
+          <div class="po-row po-mt-2 po-mb-2 btn-send-contract">
+            <po-button
+              p-label="Enviar contrato"
+              p-tooltip="Gerar contrato e Enviar para assinar"
+              p-icon="po-icon po-icon-plus"
+              p-type="default"
+              (p-click)="sendContract()"
+            >
+            </po-button>
+          </div>
+        </div>
+      </po-tab>
+      <po-tab p-active p-label="Emails para Envio">
+        <po-table
+          p-actions-right
+          p-hide-columns-manager
+          p-striped
+          [p-columns]="componenteTableColumns"
+          [p-items]="componentes"
+          [p-actions]="tableActions"
+        >
+          <ng-template p-table-cell-template let-column="column" let-row="row">
+            <po-input
+              name="email"
+              *ngIf="column.property === 'email'"
+              [(ngModel)]="row.email"
+            >
+            </po-input>
+            <po-input
+              name="name"
+              *ngIf="column.property === 'name'"
+              [(ngModel)]="row.name"
+            >
+            </po-input>
+          </ng-template>
+        </po-table>
+
+        <div class="po-row po-mt-2 po-mb-2 btn-add-item">
+          <po-button
+            p-label="Adicionar Novo"
+            p-icon="po-icon po-icon-plus"
+            p-type="default"
+            (p-click)="addNewComponenteItem()"
+          >
+          </po-button>
+        </div>
+      </po-tab>
+    </po-tabs>
+  </form>
+</po-modal>
